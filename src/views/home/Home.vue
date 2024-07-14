@@ -27,7 +27,7 @@ interface arrItem {
 
 const dataFn = async () => {
 	const res = await axios.get('http://zyxcl.xyz/exam_api/food')
-	const arr: arrItem = []
+	const arr: arrItem[] = []
 	res.data.value.forEach((item: food) => {
 		const child = []
 		item.list.forEach((val: any, num: number) => {
