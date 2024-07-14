@@ -1,0 +1,34 @@
+@mixin common($h , $bg: #FFFFFF, $flex: block, $jc: flex-start, $ai: flex-start, $w: 37.5rem) {
+    height: $h;
+    background-color: $bg;
+    display: $flex;
+    justify-content: $jc;
+    align-items: $ai;
+    width: $w;
+}
+
+@mixin ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@mixin multiline($line: 2) {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $line;
+    overflow: hidden;
+}
+
+%mid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%mid_pos {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
