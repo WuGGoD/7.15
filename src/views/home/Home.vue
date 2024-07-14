@@ -26,14 +26,16 @@ interface arrItem {
 }
 
 const dataFn = async () => {
-	const res = await axios.get('http://zyxcl.xyz/exam_api/food')
+	const res = await axios.get('https://zyxcl.xyz/exam_api/food')
 	const arr: arrItem[] = []
 	res.data.value.forEach((item: food) => {
 		const child = []
 		item.list.forEach((val: any, num: number) => {
-			let bol = JSON.parse(<string>localStorage.getItem('data')).some(
-				v => v.name === val.name,
-			)
+			let bol = localStorage.getItem('data')
+				? JSON.parse(<string>localStorage.getItem('data'))?.some(
+						v => v.name === val.name,
+					)
+				: false
 			const obj = { text: val.name, id: num, bol, ...val }
 			child.push(obj)
 		})
